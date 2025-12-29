@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nabha TeleHealth Connect — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#dcf4eb] font-poppins">
+
+  <!-- SOCIAL LEFT TAB -->
+  <div class="social-tab" aria-hidden="false">
+    <a href="#" class="social-btn" title="Twitter" aria-label="Twitter">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.92c-.63.28-1.3.47-2 .56.72-.43 1.27-1.11 1.53-1.92-.68.4-1.44.7-2.25.86A3.46 3.46 0 0 0 12.5 8.5c0 .27.03.54.09.8C8.1 9.14 4.3 7.02 1.9 3.7c-.3.52-.47 1.11-.47 1.75 0 1.2.61 2.25 1.53 2.87-.57-.02-1.1-.17-1.57-.43v.04c0 1.68 1.2 3.08 2.8 3.4-.47.13-.96.2-1.47.2-.36 0-.72-.03-1.06-.1.72 2.26 2.86 3.9 5.38 3.95A6.92 6.92 0 0 1 2 19.54a9.75 9.75 0 0 0 5.3 1.55c6.35 0 9.84-5.26 9.84-9.83v-.45c.67-.5 1.25-1.12 1.71-1.83-.62.28-1.3.47-2 .56z"/></svg>
+    </a>
+    <a href="#" class="social-btn" title="Facebook" aria-label="Facebook">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.6 17.52 2 12.02 2S2.02 6.6 2.02 12.07c0 4.99 3.66 9.12 8.44 9.93v-7.03H8.08v-2.9h2.38V9.41c0-2.35 1.4-3.65 3.54-3.65 1.02 0 2.08.18 2.08.18v2.29h-1.17c-1.15 0-1.5.71-1.5 1.44v1.73h2.56l-.41 2.9h-2.15v7.03c4.78-.81 8.44-4.94 8.44-9.93z"/></svg>
+    </a>
+    <a href="#" class="social-btn" title="Instagram" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zM18.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+    </a>
+    <a href="#" class="social-btn" title="YouTube" aria-label="YouTube">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.2a3 3 0 0 0-2.12-2.13C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.88.57A3 3 0 0 0 .99 7.2 31.06 31.06 0 0 0 .99 12a31.06 31.06 0 0 0 .12 4.8 3 3 0 0 0 2.12 2.13C5.1 19.5 12 19.5 12 19.5s6.9 0 8.88-.57A3 3 0 0 0 23 16.8 31.06 31.06 0 0 0 23 12a31.06 31.06 0 0 0 0-4.8zM9.8 15.1V8.9L15.5 12l-5.7 3.1z"/></svg>
+    </a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav-pill container flex items-center justify-between mt-6 py-4 px-6" role="navigation" aria-label="Main navigation">
+    <div class="flex items-center gap-4">
+      <img src="C:\Users\Srinjandeb\OneDrive\Desktop\Telemedicine\images\logo Swasth E Seva.jpg" class="w-12 h-12 rounded-full" alt="logo">
+      <div class="hidden sm:block">
+        <div class="font-bold text-black text-lg">SWASTH E-SEVA</div>
+        <div class="text-xs text-black/70">Rural Healthcare</div>
+      </div>
+    </div>
+
+    <ul class="nav-links flex gap-6 font-semibold text-sm items-center">
+      <li><a href="index.html" class="nav-item active" aria-current="page">Home</a></li>
+      <li><a href="consult.html" class="nav-item">Consult</a></li>
+      <li><a href="symptom.html" class="nav-item">Symptom</a></li>
+      <li><a href="medicines.html" class="nav-item">Medicines</a></li>
+      <li><a href="records.html" class="nav-item">Records</a></li>
+      <li><a href="admin.html" class="nav-item">Admin</a></li>
+      <li><a href="ambulance.html" class="nav-item btn-emergency">Emergency</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <button onclick="window.location.href='login.html'" class="btn-signin rounded-full px-4 py-2 text-sm">Sign in</button>
+    </div>
+  </nav>
+
+  <!-- MAIN HERO -->
+  <main class="max-w-7xl mx-auto px-6 mt-10 flex flex-col lg:flex-row gap-8 content-area">
+    <section class="flex-1 z-10">
+      <p class="text-green-400 tracking-widest font-semibold mb-3">WELCOME</p>
+      <h1 class="text-3xl md:text-5xl font-extralight mb-1">Medical Clinic that</h1>
+      <h2 class="text-3xl md:text-5xl font-extralight text-[#67b6aa] mb-4">You can Trust.</h2>
+      <p class="max-w-lg text-sm text-black/80 mb-6">Teleconsultation, medicine tracking and offline-first health records designed for low-bandwidth rural users in Nabha and surrounding villages.</p>
+      <div class="flex gap-3 hero-cta-row">
+        <a href="consult.html" class="cta-secondary">Book Consultation</a>
+        <a href="medicines.html" class="btn-cta">Check Medicines</a>
+        <a href="symptom.html" class="btn-success">Symptom Checker</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+        <div class="card-small"><h3>Tele-Consultations</h3><p>Video/audio calls with local doctors; offline-first records.</p></div>
+        <div class="card-small"><h3>Medicine Tracker</h3><p>Real-time stock updates from nearby pharmacies.</p></div>
+        <div class="card-small"><h3>AI Symptom Checker</h3><p>Quick triage for common ailments.</p></div>
+        <div class="card-small"><h3>Health Records</h3><p>Downloadable prescriptions and visit history.</p></div>
+      </div>
+    </section>
+
+    <section class="w-full lg:w-96 z-10">
+      <div class="relative">
+        <img src="https://propunjabtv.com/wp-content/uploads/2025/02/nabhahospital.jpg" class="hero-img" alt="clinic">
+        
+      <div class="hero-card" aria-hidden="false" style="animation:fadeInUp .6s .04s both">
+        <!-- replaced placeholder with user-provided hospital image (keeps same size & orientation) -->
+        <div class="hospital-image" style="background-image: url('https://propunjabtv.com/wp-content/uploads/2025/02/nabhahospital.jpg');"></div>
+        <div class="badge-24">24/7<br/><small style="opacity:0.95">AVAILABLE</small></div>
+      </div>
+    </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LOWER CTA -->
+  <section class="max-w-7xl mx-auto mt-10 px-6 z-10">
+    <div class="lower-cta" role="region" aria-label="Quick actions">
+      <a href="consult.html" class="cta-card"><h4>Medical Advice and Checkups</h4><p>Book your Appointment</p></a>
+      <a href="medicines.html" class="cta-card"><h4>Medicines</h4><p>Order your medicines</p></a>
+      <a href="ambulance.html" class="cta-card"><h4>Emergency Help</h4><p>Immediate assistance & triage</p></a>
+    </div>
+  </section>
+
+  <footer class="mt-12 py-6 text-center text-sm text-gray-700 z-10">
+    © 2025 SWASTH E-SEVA — Improving Rural Healthcare
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

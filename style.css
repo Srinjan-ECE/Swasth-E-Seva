@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --bg:#dcf4eb; --accent-1:#4b9e9a; --accent-2:#67b6aa; --accent-cta:#f97316; --trust:#047857;
+  --muted:#6b7280; --text:#0f172a; --card:#fff; --card-border:#eef2f6;
+  --emergency-1: #ff6b5f; /* warm alert */
+  --emergency-2: #ff3b2f;
+  --cta-blue: #2a9d8f; /* complementary teal-ish CTA */
+  --cta-green: #34b77a;
+  --cta-yellow: #f7b267; /* soft warm button */
+}
+
+/* Base */
+*{box-sizing:border-box}
+body{
+  font-family:'Poppins',sans-serif; margin:0;background:var(--bg);color:var(--text);
+  line-height:1.45;scroll-behavior:smooth;position:relative;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins' font-size='64' fill='%23cbeee2'>+</text></svg>");
+  background-repeat:repeat;background-size:120px 120px;opacity:.18;
+}
+
+/* NAV PILL: more prominent spacing */
+.nav-pill{
+  background:linear-gradient(90deg,#6ae6c6 0%,#46c7b0 45%,#2d9c90 100%);
+  border-radius:14px;
+  box-shadow:0 14px 40px rgba(11,46,40,.10);
+  padding: 10px 18px;
+  align-items:center;
+}
+
+/* logo tweaks */
+.nav-pill img{box-shadow:0 8px 24px rgba(11,46,40,.08);}
+
+/* NAV LINKS - spacing, active underline animation */
+.nav-links{list-style:none;margin:0;padding:0;display:flex;align-items:center;}
+.nav-links li{display:inline-flex;align-items:center;}
+.nav-item{
+  color: #032a25;
+  text-decoration:none;
+  padding:10px 8px;
+  position:relative;
+  border-radius:8px;
+  transition:transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+  font-weight:600;
+}
+.nav-item:hover{transform:translateY(-3px); box-shadow:0 8px 18px rgba(10,40,36,.06); background: rgba(255,255,255,0.06);}
+
+/* animated underline for active nav item */
+.nav-item::after{
+  content:"";
+  position:absolute;
+  left:14%;
+  right:14%;
+  bottom:6px;
+  height:3px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.9), rgba(255,255,255,0.0));
+  opacity:0;
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:all .35s cubic-bezier(.2,.9,.2,1);
+  border-radius:6px;
+}
+.nav-item:hover::after{opacity:1; transform:scaleX(1);}
+
+/* active state */
+.nav-item.active{
+  color:#02362f;
+  font-weight:700;
+}
+.nav-item.active::after{opacity:1; transform:scaleX(1);}
+
+/* Emergency button styled to stand out (but not clash) */
+.btn-emergency{
+  display:inline-block;
+  background: linear-gradient(90deg, var(--emergency-1), var(--emergency-2));
+  color:#fff;
+  padding:8px 12px;
+  border-radius:12px;
+  box-shadow:0 8px 28px rgba(255,98,88,.18);
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration:none;
+  font-weight:700;
+  transition:transform .14s ease, box-shadow .14s ease;
+}
+.btn-emergency:hover{transform:translateY(-3px) scale(1.02); box-shadow:0 18px 46px rgba(255,98,88,.22);}
+
+/* Sign in button */
+.btn-signin{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
+  border-radius:999px;
+  color:var(--text);
+  border:1px solid rgba(0,0,0,0.06);
+  padding:8px 12px;
+  font-weight:600;
+  box-shadow:0 8px 24px rgba(6,22,18,.04);
+}
+.btn-signin:hover{transform:translateY(-3px);}
+
+/* HERO BADGE shimmer (kept - consistent with saved theme) */
+.circle-clip{
+  position:relative;overflow:hidden;clip-path:circle(65% at right center);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  box-shadow:0 10px 30px rgba(11,46,40,.12);border-radius:16px;
+  background:linear-gradient(135deg,#6ae6c6 0%,#46c7b0 40%,#2d9c90 100%);
+  animation:float-slow 4.8s ease-in-out infinite;
+}
+.circle-clip > *{position:relative;z-index:12;}
+.circle-clip::after{
+  content:"";position:absolute;top:0;left:-80%;width:70%;height:100%;z-index:11;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.24) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-18deg);opacity:.92;animation:badge-shimmer 10.5s linear infinite;
+}
+@keyframes float-slow{0%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-6px) rotate(2deg);}100%{transform:translateY(0) rotate(-2deg);}}
+@keyframes badge-shimmer{0%{transform:translateX(-160%) skewX(-18deg);}100%{transform:translateX(320%) skewX(-18deg);}}
+
+/* badge typography */
+.badge-big{font-size:2.4rem; font-weight:700; margin:0; line-height:1;}
+.badge-small{font-size:.82rem; font-weight:700; letter-spacing:0.12em; margin:4px 0 0 0;}
+
+/* CTA ribbon and cards (kept shimmer) */
+.lower-cta{position:relative;display:flex;gap:0;border-radius:12px;overflow:hidden;
+  background:linear-gradient(90deg,#6ae6c6 0%,#46c7b0 45%,#2d9c90 100%);
+  box-shadow:0 12px 36px rgba(10,40,36,.06);}
+.lower-cta::before{content:"";position:absolute;top:0;left:-50%;width:50%;height:100%;z-index:1;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.25) 50%,rgba(255,255,255,0) 100%);
+  animation:shimmer-move 8s linear infinite;}
+@keyframes shimmer-move{0%{transform:translateX(-100%);}100%{transform:translateX(300%);}}
+
+/* CTA cards inside lower ribbon */
+.lower-cta .cta-card{flex:1;padding:28px 20px;color:#fff;text-align:center;z-index:2;
+  border-right:1px solid rgba(255,255,255,.14);transition:.28s;}
+.lower-cta .cta-card:last-child{border-right:none;}
+.lower-cta .cta-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 42px rgba(30,80,70,.15);}
+
+/* CARD SMALL */
+.card-small{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(12,34,25,.04);}
+
+/* HERO CTA Buttons: separate colours for recognition but still professional */
+.hero-cta-row a{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(6,22,18,.04);transition:transform .12s ease, box-shadow .12s ease;}
+
+/* Book Consultation - teal secondary */
+.cta-secondary{
+  background:linear-gradient(90deg,var(--accent-2),var(--accent-1));
+  color:#042a25;
+  padding:10px 14px;
+}
+.cta-secondary:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(10,60,54,.08);}
+
+/* Check Medicines - accent CTA (warm) */
+.btn-cta{
+  background:linear-gradient(90deg,var(--accent-cta),var(--cta-yellow));
+  color:#fff;
+  padding:10px 14px;
+}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(249,115,22,.12);}
+
+/* Symptom Checker - green */
+.btn-success{
+  background:linear-gradient(90deg,var(--cta-green),var(--cta-blue));
+  color:#fff;
+  padding:10px 14px;
+}
+.btn-success:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(46,139,112,.12);}
+
+/* make social tab brighter and spaced */
+.social-tab{position:fixed;left:12px;top:50%;transform:translateY(-50%);z-index:60;display:flex;flex-direction:column;gap:12px;padding:12px;
+  background:linear-gradient(180deg,rgba(83,216,196,.98),rgba(56,158,141,.98));border-radius:0 14px 14px 0;box-shadow:0 12px 36px rgba(11,46,40,.12);}
+.social-btn{width:46px;height:46px;display:flex;align-items:center;justify-content:center;color:white;border-radius:10px;transition:transform .12s, box-shadow .12s;}
+.social-btn:hover{transform:translateX(6px);opacity:.98;box-shadow:0 12px 28px rgba(6,22,18,.08);}
+.social-btn svg{width:18px;height:18px;color:#052a28;}
+
+/* HERO IMAGE */
+.hero-img{border-radius:14px;box-shadow:0 18px 48px rgba(12,34,25,.08);}
+
+/* small responsiveness */
+@media(max-width:900px){
+  .nav-links{gap:10px;}
+  .nav-item{padding:8px 6px;}
+  .nav-pill{padding:10px;}
+}
+@media(max-width:640px){
+  .lower-cta{flex-direction:column;}
+  .lower-cta .cta-card{border-right:none;border-bottom:1px solid rgba(255,255,255,.14);padding:18px 14px;}
+  .lower-cta .cta-card:last-child{border-bottom:none;}
+  .social-tab{left:8px;padding:8px;gap:8px;}
+  .nav-pill{flex-direction:column;gap:8px;align-items:flex-start;}
+  .nav-links{flex-wrap:wrap; width:100%;}
+}

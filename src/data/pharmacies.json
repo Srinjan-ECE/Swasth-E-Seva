@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Nabha Pharmacy",
+    "medicine": "Paracetamol",
+    "status": "Available"
+  },
+  {
+    "id": 2,
+    "name": "HealthPlus Chemist",
+    "medicine": "Amoxicillin",
+    "status": "Out of Stock"
+  },
+  {
+    "id": 3,
+    "name": "Village Care Store",
+    "medicine": "Cough Syrup",
+    "status": "Available"
+  }
+]

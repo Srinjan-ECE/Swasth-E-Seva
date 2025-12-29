@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "patient": "Ram Kumar",
+    "last_consultation": "2025-08-15",
+    "prescription": "Paracetamol 500mg (5 days)"
+  },
+  {
+    "id": 2,
+    "patient": "Sita Devi",
+    "last_consultation": "2025-08-18",
+    "prescription": "ORS Solution + Rest"
+  },
+  {
+    "id": 3,
+    "patient": "Rohan Das",
+    "last_consultation": "2025-08-20",
+    "prescription": "Amoxicillin 250mg (7 days)"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Amandeep Singh",
+    "specialist": "General Physician"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Meera Sharma",
+    "specialist": "ENT Specialist"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Ravi Patel",
+    "specialist": "Cardiologist"
+  }
+]

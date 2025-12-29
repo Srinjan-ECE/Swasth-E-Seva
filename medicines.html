@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medicines — Nabha TeleHealth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#dcf4eb] font-poppins">
+  <nav class="flex items-center justify-between bg-gradient-to-r from-[#4bdfca] to-[#5edaba] rounded-[4.5rem] mx-4 mt-4 py-3 px-6 shadow-md">
+    <div class="flex items-center gap-3">
+      <img src="https://i.postimg.cc/rF52W2Wf/medilogo.png" class="w-10 h-10 rounded-full" alt="logo">
+      <div class="hidden sm:block font-bold">Nabha TeleHealth</div>
+    </div>
+    <ul class="flex gap-4 text-sm font-semibold">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="consult.html">Consult</a></li>
+      <li><a href="symptom.html">Symptom</a></li>
+      <li><a href="medicines.html" class="underline">Medicines</a></li>
+      <li><a href="records.html">Records</a></li>
+      <li><a href="admin.html">Admin</a></li>
+    </ul>
+    <a href="#" onclick="alert('Demo sign-in')" class="text-sm">Sign in</a>
+  </nav>
+
+  <main class="max-w-4xl mx-auto p-6 mt-8">
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h1 class="text-2xl font-semibold mb-4">Check Medicine Availability</h1>
+      <div class="flex gap-3 mb-4">
+        <input id="medicineInput" type="text" class="flex-1 p-3 border rounded-lg" placeholder="Enter medicine (e.g., Paracetamol)">
+        <button onclick="checkMedicine()" class="px-5 py-3 bg-[#2563eb] text-white rounded-lg">Search</button>
+      </div>
+      <div id="medicineResults" class="grid gap-3"></div>
+      <p class="text-sm text-gray-500 mt-4">Demo data only — pharmacies can be updated via Admin page.</p>
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-gray-700">© 2025 Nabha TeleHealth Connect</footer>
+  <script src="script.js"></script>
+</body>
+</html>

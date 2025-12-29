@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nabha — Health Centres (Live ETAs) — Clear & Animated (Image updated)</title>
+<style>
+  /* =============================
+     Clear & Large layout + animations
+     Uses Professional Teal + Sea Green theme
+     Legend & Regenerate button removed
+     ============================= */
+
+  :root{
+    --teal-900:#064e3b;
+    --teal-800:#065f46;
+    --teal-600:#0d9488;
+    --teal-500:#14b8a6;
+    --cta-start:#0d9488;
+    --cta-end:#20c997;
+    --bg-a:#009688;
+    --bg-b:#20c997;
+    --glass: rgba(255,255,255,0.06);
+    --card-radius:16px;
+    --max-width:1300px;
+
+    /* sizing scale (bigger & clearer) */
+    --space-xxl:40px;
+    --space-xl:28px;
+    --space-md:18px;
+    --space-sm:12px;
+    --fs-hero:40px;
+    --fs-h1:28px;
+    --fs-body:18px;
+    --fs-small:14px;
+  }
+
+  /* Reset */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(135deg,var(--bg-a) 0%, var(--bg-b) 40%, #2dd4bf 100%);
+    color: var(--teal-900);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:28px;
+    display:flex;justify-content:center;
+  }
+
+  .container{
+    width:100%;
+    max-width:var(--max-width);
+    display:flex;flex-direction:column;gap:var(--space-xl);
+  }
+
+  /* NAV */
+  header.nav{
+    display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-radius:14px;
+    background: linear-gradient(90deg,var(--teal-600),var(--teal-500));
+    color:white;box-shadow:0 14px 40px rgba(2,9,7,0.10);
+  }
+  .brand{display:flex;gap:18px;align-items:center}
+  .logo{
+    width:68px;height:68px;border-radius:12px;background:linear-gradient(180deg,#07a07f,#0d6b63);
+    display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:20px;position:relative;overflow:hidden;
+    box-shadow:0 12px 34px rgba(0,0,0,0.12);
+  }
+  /* shimmer */
+  .logo::after{
+    content:"";position:absolute;top:0;left:-140%;width:240%;height:100%;background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.12), rgba(255,255,255,0.04));transform:skewX(-18deg);animation:logoSweep 8s linear infinite;
+  }
+  @keyframes logoSweep{from{left:-140%}to{left:140%}}
+
+  .brand .title{font-size:18px;font-weight:900;letter-spacing:0.4px}
+  .brand .sub{font-size:13px;opacity:0.95;margin-top:2px}
+
+  nav.menu{display:flex;gap:20px;align-items:center;font-weight:700}
+  nav.menu a{color:rgba(255,255,255,0.95);text-decoration:none;padding:10px 12px;border-radius:10px;font-size:16px}
+  .signin-btn{background:transparent;border:1px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:999px;color:white;font-weight:800;cursor:pointer;font-size:16px}
+
+  /* HERO (big & clear) */
+  .hero{
+    display:grid;grid-template-columns:1fr 480px;gap:32px;align-items:center;padding:36px;border-radius:18px;
+    background: linear-gradient(120deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+    box-shadow:0 20px 60px rgba(2,9,7,0.08);
+    border:1px solid rgba(0,0,0,0.03);
+  }
+  @media (max-width:1100px){ .hero{grid-template-columns:1fr; padding:24px} }
+
+  .hero-left .kicker{color:var(--cta-start);font-weight:900;letter-spacing:1px;font-size:14px;margin-bottom:6px}
+  .hero-title{margin:0;font-size:var(--fs-hero);line-height:1.02;color:var(--teal-900);font-weight:900}
+  .hero-sub{margin:12px 0 0 0;color:var(--teal-800);font-size:var(--fs-body);max-width:76%}
+
+  .hero-cta-row{display:flex;gap:16px;align-items:center;margin-top:18px}
+  .btn-primary{background:linear-gradient(90deg,var(--cta-start),var(--cta-end));color:white;padding:14px 18px;border-radius:14px;border:none;font-weight:900;font-size:16px;cursor:pointer;box-shadow:0 14px 40px rgba(4,78,59,0.12);transition:transform .18s ease, box-shadow .18s}
+  .btn-primary:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(4,78,59,0.16)}
+  .btn-ghost{font-weight:800;padding:12px 16px;border-radius:12px;border:1px solid rgba(3,58,51,0.06);background:transparent;color:var(--teal-900);cursor:pointer}
+
+  .hero-card{display:flex;flex-direction:column;align-items:flex-end;gap:12px;position:relative}
+  .hospital-image{width:480px;height:260px;border-radius:14px;overflow:hidden;background-size:cover;background-position:center;border:1px solid rgba(0,0,0,0.04);box-shadow:0 22px 60px rgba(2,6,23,0.08)}
+  @media (max-width:1100px){ .hospital-image{width:100%;height:200px} }
+
+  .badge-24{position:absolute;right:8px;top:-16px;background:linear-gradient(180deg,#0ea5a0,#0d9488);color:white;padding:12px 16px;border-radius:16px;font-weight:900;box-shadow:0 14px 34px rgba(4,78,59,0.12);text-align:center}
+
+  /* MAIN LAYOUT */
+  .layout{display:grid;grid-template-columns:1fr 420px;gap:24px}
+  @media (max-width:1050px){ .layout{grid-template-columns:1fr} }
+
+  .grid{display:grid;grid-template-columns: repeat(auto-fit,minmax(320px,1fr));gap:22px}
+
+  /* CARD (larger, clearer) */
+  .card{
+    background:white;border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,0.08);transition:transform .22s,box-shadow .22s;
+    color:var(--teal-900;font-size:var(--fs-body));
+    overflow:visible;
+  }
+  .card:hover{transform:translateY(-8px);box-shadow:0 36px 80px rgba(2,9,7,0.12)}
+
+  .top{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+  .h-icon{width:68px;height:68px;border-radius:10px;background:linear-gradient(135deg,#06b6d4 0%, #0d9488 100%);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:white}
+  .h-name{font-weight:900;font-size:18px;margin-bottom:6px}
+  .h-sub{font-size:15px;color:var(--teal-800);margin:0}
+
+  .availability{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .meta{background:var(--glass);padding:8px 10px;border-radius:10px;font-size:15px;color:var(--teal-900);border:1px solid rgba(255,255,255,0.04)}
+
+  .beds{padding:10px 12px;border-radius:10px;font-weight:900;font-size:15px;min-width:140px;text-align:center}
+  .beds.low{background: linear-gradient(90deg,#ff7b7b,#ffb86b); color:#3a1209}
+  .beds.medium{background: linear-gradient(90deg,#ffd54f,#6ee7b7); color:#082006}
+  .beds.high{background: linear-gradient(90deg,#6ee7b7,#34d399); color:#04201a}
+
+  .fast-eta{font-size:15px;font-weight:900;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg, rgba(13,148,136,0.06), rgba(32,201,151,0.02));border:1px solid rgba(13,148,136,0.06);color:var(--teal-900)}
+
+  .details{margin-top:12px;display:none;gap:12px;align-items:flex-start}
+  .details.show{display:flex;flex-direction:column;animation:fadeInUp .28s ease both}
+  @keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .meta-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .meta{font-size:15px;padding:8px 12px}
+
+  .ambulance-list{display:grid;grid-template-columns:repeat(1,1fr);gap:12px;margin-top:12px;width:100%}
+  .ambulance{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:12px;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.00));border:1px solid rgba(0,0,0,0.04);transition:transform .14s}
+  .ambulance:hover{transform:translateY(-4px)}
+  .ambulance .left{display:flex;gap:12px;align-items:center}
+  .ambulance .name{font-weight:800;font-size:16px}
+  .ambulance .tel{font-size:15px;color:var(--teal-800)}
+  .ambulance .eta{font-weight:900;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,0.04);min-width:100px;text-align:center;font-size:15px}
+  .ambulance .eta.arrived{background: linear-gradient(90deg,#4ade80,#86efac); color:#04201a; font-weight:900}
+
+  .dispatch-btn{padding:8px 10px;border-radius:10px;background:linear-gradient(90deg,var(--cta-start),var(--cta-end));color:white;border:none;font-weight:900;cursor:pointer}
+  .dispatch-btn:active{transform:translateY(1px)}
+
+  .show-btn{margin-top:14px;display:inline-flex;gap:12px;align-items:center;padding:10px 14px;border-radius:12px;font-weight:900;font-size:15px;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+
+  /* PANEL & MAP (bigger, clearer) */
+  .panel{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));border-radius:14px;padding:14px;box-shadow:0 14px 40px rgba(2,9,7,0.06);border:1px solid rgba(0,0,0,0.04)}
+  .map-wrap{height:520px;border-radius:12px;overflow:hidden;background: linear-gradient(180deg, rgba(8,100,90,0.12), rgba(4,60,55,0.06));display:flex;align-items:center;justify-content:center;position:relative}
+  svg#mockMap{width:100%;height:100%;display:block}
+
+  .marker{cursor:pointer;transition: transform .2s ease, opacity .15s}
+  .marker .pin { transform-origin:center center; transition: transform .35s cubic-bezier(.2,.9,.3,1) }
+
+  .atype{width:42px;height:42px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-weight:900}
+
+  .pulse{animation:livePulse 1s ease-in-out}
+  @keyframes livePulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+  .small{font-size:14px;color:var(--teal-800);margin-top:12px;text-align:center}
+
+  /* Animations */
+  @keyframes bounce {
+    0%{transform:translateY(0)}
+    25%{transform:translateY(-8px)}
+    50%{transform:translateY(0)}
+    75%{transform:translateY(-4px)}
+    100%{transform:translateY(0)}
+  }
+  .bounce{animation:bounce .9s ease}
+
+  /* Footer */
+  footer.site-footer{padding:16px;border-radius:12px;background:linear-gradient(90deg,var(--teal-600),var(--teal-500));color:white;display:flex;align-items:center;justify-content:space-between}
+  footer .small{opacity:0.95;font-size:14px}
+
+  /* responsive */
+  @media (max-width:720px){
+    :root{--fs-hero:28px;--fs-body:16px}
+    .logo{width:60px;height:60px;font-size:18px}
+    .h-icon{width:56px;height:56px;font-size:18px}
+  }
+</style>
+</head>
+<body>
+  <div class="container" id="app">
+    <!-- NAV -->
+    <header class="nav" role="banner" aria-label="Top navigation">
+      <div class="brand" aria-hidden="false">
+        <div class="logo" aria-hidden="true">SE</div>
+        <div>
+          <div class="title">SWASTH E-SEVA</div>
+          <div class="sub">Rural Healthcare — Nabha</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:18px;align-items:center">
+        <nav class="menu" aria-label="Primary">
+          <a href="#">Home</a>
+          <a href="#">Consult</a>
+          <a href="#">Symptoms</a>
+          <a href="#">Medicines</a>
+          <a href="#">Records</a>
+        </nav>
+        <div class="flex items-center gap-3">
+      <button onclick="window.location.href='login.html'" class="btn-signin rounded-full px-4 py-2 text-sm">Sign in</button>
+    </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="hero-left" style="animation:fadeInUp .5s both">
+        <div class="kicker">WELCOME</div>
+        <h1 class="hero-title">Health Centres & Hospitals — Nabha (Patiala), Punjab</h1>
+        
+
+        <div class="hero-cta-row">
+          <button class="btn-primary">Book Consultation</button>
+          <button class="btn-ghost">Check Medicines</button>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-hidden="false" style="animation:fadeInUp .6s .04s both">
+        <!-- replaced placeholder with user-provided hospital image (keeps same size & orientation) -->
+        <div class="hospital-image" style="background-image: url('https://propunjabtv.com/wp-content/uploads/2025/02/nabhahospital.jpg');"></div>
+        <div class="badge-24">24/7<br/><small style="opacity:0.95">AVAILABLE</small></div>
+      </div>
+    </section>
+
+    <!-- MAIN -->
+    <div class="layout">
+      <div>
+        <div class="grid" id="hospitalsGrid" aria-live="polite"></div>
+        <p class="small">Tip: Dispatch an ambulance to see ETA shorten. Fastest ETA is shown on the card header. ETAs regenerate after arrival to keep the demo active.</p>
+      </div>
+
+      <aside class="panel" aria-label="Map and controls">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <strong style="color:var(--teal-900)">Mock Map — Nabha</strong>
+          <div style="font-size:14px;color:var(--teal-800)">Interactive • Demo</div>
+        </div>
+
+        <div class="map-wrap" id="mapWrap" style="margin-top:14px">
+          <svg id="mockMap" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mock map of Nabha with hospitals">
+            <defs>
+              <linearGradient id="landGrad" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#04302b"/><stop offset="100%" stop-color="#02251f"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="1000" height="700" fill="url(#landGrad)"/>
+            <g opacity="0.06" stroke="#0d9488" stroke-width="1">
+              <path d="M40 120 C 200 40, 300 160, 480 120" fill="none"/>
+              <path d="M50 500 C 240 420, 420 560, 780 480" fill="none"/>
+              <path d="M120 300 C 260 260, 380 380, 620 320" fill="none"/>
+            </g>
+            <g id="markers"></g>
+          </svg>
+        </div>
+
+        <!-- legend and regenerate button removed as requested -->
+
+      </aside>
+    </div>
+
+    <footer class="site-footer" style="margin-top:12px">
+      <div style="color:white;font-weight:800">SWASTH E-SEVA — Nabha, Patiala</div>
+      <div class="small" style="color:rgba(255,255,255,0.95)">© <span id="year"></span> • Local-first rural healthcare</div>
+    </footer>
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Demo logic (unchanged features) */
+  function randomMobile() {
+    const prefixes = ['9','8','7'];
+    const p = prefixes[Math.floor(Math.random()*prefixes.length)];
+    let rest = '';
+    for(let i=0;i<9;i++) rest += Math.floor(Math.random()*10);
+    return '+91 ' + p + rest.slice(0,4) + ' ' + rest.slice(4);
+  }
+
+  const ambulanceTypes = [
+    { key:'BLS', label:'Basic Life Support', icon:'🚑' },
+    { key:'ALS', label:'Advanced Life Support', icon:'💓' },
+    { key:'CARD', label:'Cardiac Ambulance', icon:'❤️‍🩹' },
+    { key:'NEO', label:'Neonatal', icon:'👶' },
+    { key:'TRAUMA', label:'Trauma Response', icon:'🩺' }
+  ];
+
+  const hospitals = [
+    { id:1, name:"District Civil Hospital, Nabha", type:"Government Hospital", address:"NH7 Road", beds_total:120, beds_available:18, distance_km:0.9, x:52, y:38 },
+    { id:2, name:"Nabha Community Health Centre (CHC)", type:"Community Health Centre", address:"Chandigarh Rd", beds_total:60, beds_available:12, distance_km:1.6, x:42, y:46 },
+    { id:3, name:"Sant Baba Hari Singh Hospital", type:"Private Hospital", address:"Mall Road", beds_total:48, beds_available:5, distance_km:2.2, x:62, y:52 },
+    { id:4, name:"Maa Vaishno General Hospital", type:"Private Nursing Home", address:"Main Bazaar", beds_total:36, beds_available:2, distance_km:0.7, x:32, y:40 },
+    { id:5, name:"Patiala-Nabha Medical Centre", type:"Multi Specialty Clinic", address:"Opp. City Park", beds_total:30, beds_available:6, distance_km:1.2, x:56, y:62 },
+    { id:6, name:"Urban Health & Wellness Center, Nabha", type:"Urban Health Centre", address:"Sector 4", beds_total:20, beds_available:10, distance_km:0.4, x:28, y:58 },
+    { id:7, name:"Primary Health Centre (PHC) Ballowal", type:"Primary Health Center", address:"Ballowal Village", beds_total:10, beds_available:4, distance_km:7.8, x:16, y:68 },
+    { id:8, name:"Reliable Care & Trauma Centre", type:"Emergency & Trauma", address:"Highway Link Road", beds_total:40, beds_available:9, distance_km:3.4, x:72, y:28 }
+  ];
+
+  function randomETASeconds(distance_km){
+    const minutesPerKm = 1.8 + Math.random()*3.2;
+    const overheadMin = 1 + Math.random()*2;
+    const minutes = distance_km * minutesPerKm + overheadMin;
+    const jitter = (Math.random()*0.6 - 0.3) * minutes;
+    const final = Math.max(0.5, minutes + jitter);
+    return Math.round(final * 60);
+  }
+
+  function generateAmbulanceList(n=5, distance_km=2){
+    const list = [];
+    for(let i=0;i<n;i++){
+      const num = randomMobile();
+      const type = ambulanceTypes[Math.floor(Math.random()*ambulanceTypes.length)];
+      const eta = randomETASeconds(distance_km);
+      list.push({ num, type, etaSeconds: eta, state: 'enroute' });
+    }
+    return list;
+  }
+
+  hospitals.forEach(h=>{ h.ambulanceContacts = generateAmbulanceList(5, h.distance_km); });
+
+  // util
+  function formatETA(sec){ if(sec <= 0) return '00:00'; const m = Math.floor(sec/60); const s = sec % 60; return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0'); }
+  function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+  function bedClass(avail, total){ const r = total ? avail/total : 0; if(r<=0.12) return 'low'; if(r<=0.4) return 'medium'; return 'high'; }
+  function computeFastestETA(h){ if(!h.ambulanceContacts || h.ambulanceContacts.length===0) return null; const enroute = h.ambulanceContacts.filter(a=>a.state!=='arrived'); const arr = enroute.length ? enroute.map(a=>a.etaSeconds) : h.ambulanceContacts.map(a=>a.etaSeconds); return Math.min(...arr); }
+
+  // render cards with entrance animation
+  const grid = document.getElementById('hospitalsGrid');
+  function createHospitalCard(h, idx){
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.id = 'card-' + h.id;
+    // add entrance stagger
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(12px)';
+    setTimeout(()=>{ card.style.transition = 'opacity .45s ease, transform .45s cubic-bezier(.2,.9,.2,1)'; card.style.opacity='1'; card.style.transform='none'; }, 80 * idx);
+
+    const ambHtml = h.ambulanceContacts.map((a, i)=>`
+      <div class="ambulance" data-num-index="${i}">
+        <div class="left">
+          <div style="width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));font-weight:900;font-size:20px">
+            ${a.type.icon}
+          </div>
+          <div>
+            <div class="name">Ambulance ${i+1} • <span style="font-weight:700;font-size:13px;color:var(--teal-800)">${a.type.label}</span></div>
+            <div class="tel" style="margin-top:6px">${a.num}</div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+          <div class="eta" id="eta-${h.id}-${i}">${formatETA(a.etaSeconds)}</div>
+          <div style="display:flex;gap:8px"><button class="dispatch-btn" data-h="${h.id}" data-i="${i}" title="Dispatch">Dispatch</button></div>
+        </div>
+      </div>
+    `).join('');
+
+    const fastest = computeFastestETA(h);
+    const fastestHtml = fastest !== null ? `<div class="fast-eta" id="fast-${h.id}">Fastest ETA: ${formatETA(fastest)}</div>` : `<div class="fast-eta" id="fast-${h.id}">Fastest ETA: —</div>`;
+
+    card.innerHTML = `
+      <div class="top">
+        <div class="h-icon">${h.name.split(' ').slice(0,2).map(w=>w[0]).join('')}</div>
+        <div>
+          <div class="h-name">${h.name}</div>
+          <div class="h-sub">${h.type} • ${h.address}</div>
+        </div>
+        <div class="availability" aria-hidden="true">
+          <div class="meta">Dist: ${h.distance_km} km</div>
+          <div class="beds ${bedClass(h.beds_available,h.beds_total)}" id="beds-${h.id}">${h.beds_available} / ${h.beds_total} beds</div>
+          ${fastestHtml}
+        </div>
+      </div>
+
+      <div class="details" id="d-${h.id}">
+        <div class="meta-row">
+          <div class="meta">Emergency: 24/7</div>
+          <div class="meta">OPD: 9am - 5pm</div>
+          <div class="meta">ICU: ${h.beds_total>30 ? 'Yes':'Limited'}</div>
+        </div>
+
+        <div style="margin-top:12px;font-size:15px;color:var(--teal-800)">Ambulance contacts (tap to call) — ETAs live countdown:</div>
+        <div class="ambulance-list" id="ambList-${h.id}">
+          ${ambHtml}
+        </div>
+      </div>
+
+      <button class="show-btn" data-target="${h.id}" aria-expanded="false">View details & Ambulance contacts ▸</button>
+    `;
+
+    // toggle details with animation
+    const btn = card.querySelector('.show-btn');
+    const det = card.querySelector('.details');
+    btn.addEventListener('click', ()=>{
+      const show = det.classList.toggle('show');
+      btn.setAttribute('aria-expanded', show ? 'true' : 'false');
+      btn.textContent = show ? 'Hide details ▾' : 'View details & Ambulance contacts ▸';
+    });
+
+    return card;
+  }
+
+  function renderAllCards(){
+    grid.innerHTML = '';
+    hospitals.forEach((h, i)=> grid.appendChild(createHospitalCard(h, i)));
+    // bind dispatch buttons
+    document.querySelectorAll('.dispatch-btn').forEach(btn=>{
+      btn.addEventListener('click', (ev)=>{
+        const hid = Number(btn.dataset.h);
+        const idx = Number(btn.dataset.i);
+        dispatchAmbulance(hid, idx);
+      });
+    });
+  }
+
+  // MAP
+  const markersGroup = document.getElementById('markers');
+  function createMarkerElement(h){
+    const svgX = (h.x / 100) * 1000; const svgY = (h.y / 100) * 700;
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.classList.add('marker'); g.setAttribute('transform', `translate(${svgX}, ${svgY})`); g.setAttribute('data-hid', h.id);
+
+    const glow = document.createElementNS('http://www.w3.org/2000/svg','circle'); glow.setAttribute('cx',0); glow.setAttribute('cy',0); glow.setAttribute('r',24); glow.setAttribute('fill','rgba(13,148,136,0.14)'); g.appendChild(glow);
+
+    const circle = document.createElementNS('http://www.w3.org/2000/svg','circle'); circle.setAttribute('cx',0); circle.setAttribute('cy',0); circle.setAttribute('r',14); circle.setAttribute('fill','#0d9488'); circle.setAttribute('stroke','#fff'); circle.setAttribute('stroke-width','1.5'); g.appendChild(circle);
+
+    const text = document.createElementNS('http://www.w3.org/2000/svg','text'); text.setAttribute('x',0); text.setAttribute('y',5); text.setAttribute('font-size',12); text.setAttribute('text-anchor','middle'); text.setAttribute('fill','#fff'); text.textContent = h.id; g.appendChild(text);
+
+    const label = document.createElementNS('http://www.w3.org/2000/svg','text'); label.setAttribute('x',30); label.setAttribute('y',6); label.setAttribute('font-size',13); label.setAttribute('fill','rgba(255,255,255,0.95)'); label.textContent = h.name.split(',')[0]; g.appendChild(label);
+
+    g.addEventListener('click', ()=> {
+      focusHospitalCard(h.id);
+      // marker bounce
+      const pin = circle;
+      pin.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-10px)' }, { transform: 'translateY(0)' }], { duration:700, easing:'cubic-bezier(.2,.9,.3,1)' });
+    });
+    return g;
+  }
+  function renderMapMarkers(){ markersGroup.innerHTML=''; hospitals.forEach(h=> markersGroup.appendChild(createMarkerElement(h))); }
+
+  function focusHospitalCard(id){
+    const card = document.getElementById('card-' + id); if(!card) return;
+    const btn = card.querySelector('.show-btn'); const det = card.querySelector('.details');
+    if(det && !det.classList.contains('show')) btn.click();
+    card.animate([{ boxShadow: '0 0 0 rgba(0,0,0,0)' }, { boxShadow: '0 40px 120px rgba(13,148,136,0.16)' }, { boxShadow: '0 0 0 rgba(0,0,0,0)' }], { duration: 900 });
+    setTimeout(()=> card.scrollIntoView({ behavior:'smooth', block:'center' }), 60);
+  }
+
+  // ETA / Dispatch logic
+  function dispatchAmbulance(hid, idx){
+    const h = hospitals.find(x=>x.id===hid); if(!h) return;
+    const amb = h.ambulanceContacts[idx]; if(!amb) return;
+    const rapid = Math.max(20, Math.min(Math.floor(amb.etaSeconds/2), 90));
+    amb.etaSeconds = rapid; amb.state='enroute';
+    const etaEl = document.getElementById(`eta-${hid}-${idx}`);
+    if(etaEl) { etaEl.textContent = formatETA(amb.etaSeconds); etaEl.classList.remove('arrived'); etaEl.classList.add('pulse'); setTimeout(()=> etaEl.classList.remove('pulse'),900); }
+    updateHospitalFastestDOM(h);
+  }
+  function updateHospitalFastestDOM(h){
+    const fastEl = document.getElementById('fast-' + h.id); if(!fastEl) return;
+    const fastest = computeFastestETA(h);
+    fastEl.textContent = 'Fastest ETA: ' + (fastest !== null ? formatETA(fastest) : '—');
+    fastEl.classList.add('pulse'); setTimeout(()=> fastEl.classList.remove('pulse'),900);
+  }
+
+  function handleArrival(h, ambIdx){
+    const amb = h.ambulanceContacts[ambIdx]; amb.state='arrived';
+    const etaEl = document.getElementById(`eta-${h.id}-${ambIdx}`);
+    if(etaEl){ etaEl.textContent='Arrived'; etaEl.classList.add('arrived'); }
+    setTimeout(()=> {
+      amb.etaSeconds = randomETASeconds(h.distance_km); amb.state='enroute';
+      const etaEl2 = document.getElementById(`eta-${h.id}-${ambIdx}`);
+      if(etaEl2){ etaEl2.classList.remove('arrived'); etaEl2.textContent = formatETA(amb.etaSeconds); etaEl2.classList.add('pulse'); setTimeout(()=> etaEl2.classList.remove('pulse'),900); }
+      updateHospitalFastestDOM(h);
+    }, 3000 + Math.floor(Math.random()*4000));
+  }
+
+  function startGlobalTick(){
+    setInterval(()=>{
+      hospitals.forEach(h=>{
+        h.ambulanceContacts.forEach((amb, idx)=>{
+          if(amb.state==='enroute'){ amb.etaSeconds = Math.max(0, amb.etaSeconds - 1);
+            const etaEl = document.getElementById(`eta-${h.id}-${idx}`);
+            if(etaEl){ etaEl.textContent = formatETA(amb.etaSeconds); etaEl.classList.add('pulse'); setTimeout(()=> etaEl.classList.remove('pulse'),700); }
+            if(amb.etaSeconds <= 0) handleArrival(h, idx);
+          }
+        });
+        updateHospitalFastestDOM(h);
+      });
+    }, 1000);
+  }
+
+  // Beds simulation
+  function updateBedDOM(h){
+    const el = document.getElementById('beds-' + h.id); if(!el) return;
+    el.textContent = `${h.beds_available} / ${h.beds_total} beds`;
+    el.classList.remove('low','medium','high');
+    const ratio = h.beds_total ? h.beds_available / h.beds_total : 0;
+    if(ratio <= 0.12) el.classList.add('low'); else if(ratio <= 0.4) el.classList.add('medium'); else el.classList.add('high');
+    el.classList.add('pulse'); setTimeout(()=> el.classList.remove('pulse'),900);
+  }
+  function simulateBedUpdate(){ const idx = Math.floor(Math.random()*hospitals.length); const h = hospitals[idx]; const delta = Math.floor(Math.random()*6)-2; h.beds_available = clamp(h.beds_available + delta, 0, h.beds_total); updateBedDOM(h); }
+
+  // Regen ambulances (no UI button now, but function kept if needed)
+  function regenAmbulanceNumbers(){
+    hospitals.forEach(h=>{
+      h.ambulanceContacts = generateAmbulanceList(5, h.distance_km);
+      const listEl = document.getElementById('ambList-' + h.id);
+      if(listEl){
+        listEl.innerHTML = h.ambulanceContacts.map((a,i)=>`
+          <div class="ambulance" data-num-index="${i}">
+            <div class="left">
+              <div style="width:52px;height:52px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));font-weight:900;font-size:20px">
+                ${a.type.icon}
+              </div>
+              <div>
+                <div class="name">Ambulance ${i+1} • <span style="font-weight:700;font-size:13px;color:var(--teal-800)">${a.type.label}</span></div>
+                <div class="tel" style="margin-top:6px">${a.num}</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+              <div class="eta" id="eta-${h.id}-${i}">${formatETA(a.etaSeconds)}</div>
+              <div style="display:flex;gap:8px"><button class="dispatch-btn" data-h="${h.id}" data-i="${i}">Dispatch</button></div>
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+    // bind dispatch
+    document.querySelectorAll('.dispatch-btn').forEach(btn=> btn.addEventListener('click', (ev)=> { const hid = Number(btn.dataset.h); const idx = Number(btn.dataset.i); dispatchAmbulance(hid, idx); } ) );
+    hospitals.forEach(h => updateHospitalFastestDOM(h));
+  }
+
+  // helper functions reused
+  function formatETA(sec){ if(sec <= 0) return '00:00'; const m = Math.floor(sec/60); const s = sec % 60; return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0'); }
+  function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+  function randomETASeconds(distance_km){ const minutesPerKm = 1.8 + Math.random()*3.2; const overheadMin = 1 + Math.random()*2; const minutes = distance_km * minutesPerKm + overheadMin; const jitter = (Math.random()*0.6 - 0.3) * minutes; const final = Math.max(0.5, minutes + jitter); return Math.round(final * 60); }
+  function generateAmbulanceList(n=5, distance_km=2){ const list=[]; for(let i=0;i<n;i++){ const num=randomMobile(); const type=ambulanceTypes[Math.floor(Math.random()*ambulanceTypes.length)]; const eta=randomETASeconds(distance_km); list.push({num,type,etaSeconds:eta,state:'enroute'});} return list; }
+
+  // init
+  function init(){
+    renderAllCards();
+    renderMapMarkers();
+    setInterval(()=> simulateBedUpdate(), 5000 + Math.floor(Math.random()*4000));
+    setInterval(()=> { simulateBedUpdate(); simulateBedUpdate(); }, 12000);
+    startGlobalTick();
+    document.addEventListener('keydown', (e)=>{ if(e.key.toLowerCase()==='d'){ const firstBtn=document.querySelector('.show-btn'); if(firstBtn) firstBtn.click(); }});
+  }
+
+  init();
+
+</script>
+</body>
+</html>

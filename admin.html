@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Nabha TeleHealth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#dcf4eb] font-poppins">
+  <nav class="flex items-center justify-between bg-gradient-to-r from-[#4bdfca] to-[#5edaba] rounded-[4.5rem] mx-4 mt-4 py-3 px-6 shadow-md">
+    <div class="flex items-center gap-3">
+      <img src="https://i.postimg.cc/rF52W2Wf/medilogo.png" class="w-10 h-10 rounded-full" alt="logo">
+      <div class="hidden sm:block font-bold">Nabha TeleHealth</div>
+    </div>
+    <ul class="flex gap-4 text-sm font-semibold">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="consult.html">Consult</a></li>
+      <li><a href="symptom.html">Symptom</a></li>
+      <li><a href="medicines.html">Medicines</a></li>
+      <li><a href="records.html">Records</a></li>
+      <li><a href="admin.html" class="underline">Admin</a></li>
+    </ul>
+    <a href="#" onclick="alert('Demo sign-in')" class="text-sm">Sign in</a>
+  </nav>
+
+  <main class="max-w-6xl mx-auto p-6 mt-8">
+    <div class="bg-white p-6 rounded-xl shadow-md">
+      <h1 class="text-2xl font-semibold mb-4">Admin Dashboard</h1>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Doctor Queue</h3>
+          <p class="text-sm text-gray-500 mb-3">Accept or decline incoming requests (demo)</p>
+          <ul id="doctorQueue" class="space-y-3"></ul>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Pharmacy Stock Manager</h3>
+          <p class="text-sm text-gray-500 mb-3">Update stock status</p>
+          <label class="flex flex-col mb-2"><span class="font-medium">Medicine Name</span>
+            <input id="adminMedName" type="text" class="mt-2 p-3 border rounded-lg" />
+          </label>
+          <label class="flex flex-col mb-4"><span class="font-medium">Status</span>
+            <select id="adminMedStatus" class="mt-2 p-3 border rounded-lg">
+              <option>Available</option>
+              <option>Out of Stock</option>
+            </select>
+          </label>
+          <div class="flex gap-3">
+            <button onclick="updatePharmacyStock()" class="px-4 py-2 bg-[#2563eb] text-white rounded-lg">Update Stock</button>
+            <a href="index.html" class="px-4 py-2 bg-gray-200 rounded-lg">Back</a>
+          </div>
+
+          <div id="pharmacyList" class="mt-6 grid gap-2"></div>
+        </div>
+      </div>
+
+      <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+        <h4 class="font-semibold mb-2">Admin Metrics</h4>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <div class="p-4 bg-white rounded-lg shadow flex-1 text-center">
+            <div id="mConsults" class="text-2xl font-bold text-[#065f46]">0</div>
+            <div class="text-sm text-gray-600">Total Consultations</div>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow flex-1 text-center">
+            <div id="mMedicines" class="text-2xl font-bold text-[#065f46]">0</div>
+            <div class="text-sm text-gray-600">Medicines Listed</div>
+          </div>
+          <div class="p-4 bg-white rounded-lg shadow flex-1 text-center">
+            <div id="mPending" class="text-2xl font-bold text-[#065f46]">0</div>
+            <div class="text-sm text-gray-600">Pending Requests</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-gray-700">© 2025 Nabha TeleHealth Connect</footer>
+  <script src="script.js"></script>
+</body>
+</html>
